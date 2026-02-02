@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>George Wilson — Latham & Wathinks | Senior Solicitor</title>
+  <meta name="description" content="George Wilson, Senior Solicitor at Latham & Wathinks. 22 years experience. Contact for professional legal advice.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ---------------------------
+       Shereboy Tech — Lawyer Site
+       Single-file professional template for:
+       Name: George Wilson
+       Firm: Latham & Wathinks
+       Address: 221B Baker Street, London NW1 6XE, United Kingdom
+       Email: georgewilson24578@gmail.com
+       Notes: Replace the profile image at the marked location.
+       --------------------------- */
+
+    :root{
+      --bg:#071226;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --text:#eef7fb;
+      --accent:#c9973b; /* warm gold accent */
+      --accent-2:#2ea3d6; /* calm blue */
+      --glass: rgba(255,255,255,0.03);
+      --success: #38b000;
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1000px 400px at 10% 10%, rgba(46,163,214,0.06), transparent 10%),
+        linear-gradient(180deg,#061126 0%, #071223 60%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      padding:28px;
+      line-height:1.45;
+    }
+
+    .container{max-width:1100px;margin:0 auto}
+
+    /* Header / Hero */
+    header.site-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom:22px;
+    }
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{
+      width:72px;height:72px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg,var(--accent),#e0b36b);
+      color:#082122;font-weight:800;font-size:22px;box-shadow:0 8px 30px rgba(3,7,18,0.6);
+    }
+    .brand h1{margin:0;font-size:20px}
+    .brand p{margin:0;color:var(--muted);font-size:13px}
+
+    .contact-quick{display:flex;gap:12px;align-items:center}
+    .chip{background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:999px;font-weight:700;color:var(--muted);font-size:13px}
+    .primary-cta{background:linear-gradient(90deg,var(--accent),#f1c570);color:#04121a;padding:10px 14px;border-radius:10px;border:0;font-weight:800;cursor:pointer}
+
+    /* Main layout */
+    main.hero{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:22px;
+      align-items:start;
+    }
+    @media (max-width:980px){ main.hero { grid-template-columns: 1fr; } }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.015));
+      border-radius:12px;padding:18px;box-shadow:0 10px 30px rgba(2,6,23,0.6);
+    }
+
+    /* Left content */
+    .hero-left h2{margin:0;font-size:26px}
+    .subtitle{color:var(--muted);margin-top:8px;margin-bottom:14px}
+    .meta-badges{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+    .badge{background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:8px;font-weight:700;color:var(--muted);font-size:13px}
+
+    .about{margin-top:12px;color:var(--muted);font-size:15px}
+    .highlights{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+    .highlight{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:10px;flex:1;min-width:160px}
+
+    /* Practice areas */
+    .areas{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+    @media (max-width:720px){ .areas{grid-template-columns:repeat(2,1fr)} }
+    .area{padding:12px;border-radius:10px;background:rgba(255,255,255,0.01)}
+    .area h4{margin:0 0 6px 0}
+
+    /* Testimonials */
+    .testimonials{margin-top:18px}
+    .testItem{background:rgba(255,255,255,0.01);padding:12px;border-radius:10px;margin-bottom:8px}
+
+    /* Right column (profile & contact) */
+    .profile{
+      display:flex;flex-direction:column;gap:12px;
+      position:sticky; top:28px;
+    }
+    .portrait{
+      height:260px;border-radius:10px;background:linear-gradient(180deg,#0b1320,#071022);
+      display:flex;align-items:center;justify-content:center;overflow:hidden;
+      border:1px solid rgba(255,255,255,0.03)
+    }
+    .portrait img{width:100%;height:100%;object-fit:cover;display:block}
+    .portrait .placeholder{
+      display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--muted);padding:18px;text-align:center;
+    }
+    .profile .info{display:flex;flex-direction:column;gap:6px}
+    .info .name{font-weight:800;font-size:20px}
+    .info .role{color:var(--muted);font-size:13px}
+
+    .reg-badge{background:linear-gradient(90deg,#0ea5d7,#bfa25d);padding:8px;border-radius:8px;color:#04121a;font-weight:800;text-align:center}
+
+    /* Contact form */
+    form.contact-form{display:flex;flex-direction:column;gap:10px}
+    .field{display:flex;flex-direction:column}
+    label{font-size:13px;color:var(--muted);margin-bottom:6px}
+    input[type="text"], input[type="email"], textarea, input[type="tel"]{
+      background:transparent;border:1px solid rgba(255,255,255,0.05);padding:10px;border-radius:8px;color:var(--text);
+    }
+    textarea{min-height:110px;resize:vertical}
+    .form-row{display:flex;gap:8px}
+    .form-row .field{flex:1}
+
+    .form-actions{display:flex;gap:8px;align-items:center;justify-content:space-between}
+    .note{font-size:13px;color:var(--muted)}
+
+    /* Footer */
+    footer.site-footer{margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.02);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted)}
+    .small{font-size:13px;color:var(--muted)}
+
+    /* success toast */
+    .toast{
+      position:fixed;left:50%;transform:translateX(-50%);bottom:28px;background:linear-gradient(90deg,var(--accent),#e0b36b);
+      color:#04121a;padding:12px 18px;border-radius:10px;font-weight:800;box-shadow:0 8px 26px rgba(2,6,23,0.6);display:none;
+    }
+
+    /* accessibility focus */
+    button:focus, input:focus, textarea:focus { outline: 3px solid rgba(46,163,214,0.12); outline-offset:3px }
+
+  </style>
+</head>
+<body>
+  <div class="container" role="document" aria-label="George Wilson — Latham & Wathinks, Lawyer website demo">
+
+    <!-- Header -->
+    <header class="site-header" role="banner">
+      <div class="brand" aria-hidden>
+        <div class="logo">LW</div>
+        <div>
+          <h1>George Wilson</h1>
+          <p class="small">Partner — Latham & Wathinks</p>
+        </div>
+      </div>
+
+      <div class="contact-quick" role="navigation" aria-label="Quick contact">
+        <div class="chip">22 Years' Experience</div>
+        <div class="chip">Registered Legal Professional</div>
+        <button class="primary-cta" onclick="document.getElementById('contactName').focus()">Schedule Consultation</button>
+      </div>
+    </header>
+
+    <!-- Hero / main -->
+    <main class="hero" role="main">
+      <!-- Left: intro, practice areas, testimonials -->
+      <section class="card hero-left">
+        <h2>Trusted legal counsel with dedication and clarity</h2>
+        <p class="subtitle">George Wilson is a seasoned solicitor at Latham & Wathinks, focused on delivering pragmatic outcomes and protecting clients' interests with integrity.</p>
+
+        <div class="about">
+          With over 22 years of experience, George has represented individuals and organisations in complex matters across civil litigation, commercial law, and regulatory compliance. He combines meticulous preparation with calm advocacy — ensuring clients understand their options and feel supported at every step.
+        </div>
+
+        <div class="meta-badges" aria-hidden>
+          <div class="badge">Solicitor — Professional Registration (verified)</div>
+          <div class="badge">Member, Law Society</div>
+          <div class="badge">Client-first approach</div>
+        </div>
+
+        <div class="highlights" aria-hidden>
+          <div class="highlight">
+            <strong>Approach</strong>
+            <div class="small">Tailored strategies, honest advice, and strong representation in and out of court.</div>
+          </div>
+          <div class="highlight">
+            <strong>Results</strong>
+            <div class="small">Proven track record in negotiations and litigation — prioritising client goals.</div>
+          </div>
+          <div class="highlight">
+            <strong>Languages</strong>
+            <div class="small">English (fluent). Additional languages available on request.</div>
+          </div>
+        </div>
+
+        <h3 style="margin-top:16px">Practice areas</h3>
+        <div class="areas" aria-label="Practice areas">
+          <div class="area">
+            <h4>Civil Litigation</h4>
+            <div class="small">Disputes, claims, injunctions and appeals.</div>
+          </div>
+          <div class="area">
+            <h4>Commercial Law</h4>
+            <div class="small">Contracts, partnerships, and corporate advisory.</div>
+          </div>
+          <div class="area">
+            <h4>Regulatory & Compliance</h4>
+            <div class="small">Regulatory defence, investigations and compliance programs.</div>
+          </div>
+          <div class="area">
+            <h4>Employment Law</h4>
+            <div class="small">Workplace disputes, contracts, and tribunal representation.</div>
+          </div>
+          <div class="area">
+            <h4>Wills & Estates</h4>
+            <div class="small">Estate planning, probate and administration.</div>
+          </div>
+          <div class="area">
+            <h4>Negotiation & Mediation</h4>
+            <div class="small">Alternative dispute resolution and settlement negotiation.</div>
+          </div>
+        </div>
+
+        <div class="testimonials" aria-label="Client testimonials">
+          <h3 style="margin-top:16px">Client feedback</h3>
+          <div class="testItem">
+            "George was calm, thorough and got us a resolution we were very pleased with. Excellent communicator." — A. Patel
+          </div>
+          <div class="testItem">
+            "Professional and strategic. We trusted George to represent the firm's interests in a complex matter." — R. Thompson
+          </div>
+        </div>
+      </section>
+
+      <!-- Right: Profile, registration, contact form -->
+      <aside class="profile">
+        <div class="card portrait" aria-hidden="true">
+          <!-- Replace the <img> below with the professional portrait.
+               Example: <img src="images/george-wilson.jpg" alt="George Wilson — Partner, Latham & Wathinks">
+               For the demo we show a tasteful placeholder. -->
+          <!-- Option A: image placeholder (comment/uncomment as needed) -->
+          <div class="placeholder" id="imgPlaceholder">
+            <!-- Elegant SVG silhouette placeholder -->
+            <img src="image-9.jpg">
+            <div style="margin-top:10px;font-size:13px;color:var(--muted)">Profile image — replace with real photo</div>
+          </div>
+        </div>
+
+        <div class="card info">
+          <div class="info">
+            <div class="name">George Wilson</div>
+            <div class="role">Partner, Latham & Wathinks</div>
+            <div class="small">Address: 221B Baker Street, London NW1 6XE, United Kingdom</div>
+            <div class="small">Email: <a href="mailto:georgewilson24578@gmail.com" style="color:var(--accent);text-decoration:none">georgewilson24578@gmail.com</a></div>
+            <div class="small">22 years of legal practice • Registered Legal Professional</div>
+          </div>
+
+          <div style="height:12px"></div>
+          <div class="reg-badge">Registered Solicitor • Registration: <em>PROF‑REG‑No. 498271</em></div>
+        </div>
+
+        <div class="card">
+          <h4 style="margin:0 0 8px 0">Request a consultation</h4>
+          <p class="small">Briefly describe your matter and George will contact you. This form opens your email client (demo) — or you may copy details and email directly.</p>
+
+          <form id="contactForm" class="contact-form" onsubmit="return handleContact(event)">
+            <div class="field">
+              <label for="contactName">Your name</label>
+              <input id="contactName" name="contactName" type="text" required placeholder="Full name">
+            </div>
+
+            <div class="field">
+              <label for="contactEmail">Your email</label>
+              <input id="contactEmail" name="contactEmail" type="email" required placeholder="you@example.com">
+            </div>
+
+            <div class="field">
+              <label for="contactPhone">Phone (optional)</label>
+              <input id="contactPhone" name="contactPhone" type="tel" placeholder="+44 7xxx xxxxxx">
+            </div>
+
+            <div class="field">
+              <label for="contactMessage">Briefly describe your legal matter</label>
+              <textarea id="contactMessage" name="contactMessage" required placeholder="Please describe the issue briefly — type of matter, timeline, any urgent deadlines"></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="primary-cta">Send message</button>
+              <button type="button" class="chip" onclick="copyEmail()">Copy email address</button>
+            </div>
+
+            <div style="height:8px"></div>
+            <div class="note">By sending, you consent to being contacted. No confidential data should be submitted until engagement is confirmed.</div>
+          </form>
+        </div>
+
+        <div class="card small">
+          <strong>Office hours</strong>
+          <div>Mon — Fri: 09:00 — 18:00</div>
+          <div style="height:8px"></div>
+          <strong>Pro bono & community</strong>
+          <div class="small">George supports access to justice initiatives. Ask about pro bono availability.</div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+      <div>
+        <div style="font-weight:800">Latham & Wathinks</div>
+        <div class="small">221B Baker Street, London NW1 6XE, United Kingdom</div>
+        <div class="small">Email: <a href="mailto:georgewilson24578@gmail.com" style="color:var(--accent);text-decoration:none">georgewilson24578@gmail.com</a></div>
+      </div>
+      <div class="small" style="text-align:right">
+        <div>&copy; <span id="year"></span> Latham & Wathinks</div>
+        <div>Designed to present George Wilson's practice with professionalism and care.</div>
+      </div>
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite">Message prepared — email client opened</div>
+  </div>
+
+  <script>
+    // Basic interactive behaviour for the single-file demo.
+    // The contact form will open the user's email client using a mailto: link prefilled with the message.
+    // It will also save the submission to localStorage (demo only) so you can review sample leads locally.
+
+    // Configuration: recipient email (supplied by you)
+    const RECIPIENT_EMAIL = 'georgewilson24578@gmail.com';
+
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Handle contact form submit
+    function handleContact(ev){
+      ev.preventDefault();
+      const name = document.getElementById('contactName').value.trim();
+      const email = document.getElementById('contactEmail').value.trim();
+      const phone = document.getElementById('contactPhone').value.trim();
+      const message = document.getElementById('contactMessage').value.trim();
+
+      if(!name || !email || !message){
+        alert('Please complete name, email and a brief description of your matter.');
+        return false;
+      }
+
+      // Compose email subject & body
+      const subject = encodeURIComponent(`Consultation request — ${name}`);
+      const bodyLines = [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        phone ? `Phone: ${phone}` : '',
+        '',
+        'Brief description:',
+        message,
+        '',
+        'Source: Latham & Wathinks website (demo)'
+      ].filter(Boolean).join('\n');
+
+      const body = encodeURIComponent(bodyLines);
+
+      // Try to open default email client with prefilled message (mailto)
+      // Note: mailto has length limits in some clients; for long messages, instruct manual email.
+      const mailto = `mailto:${RECIPIENT_EMAIL}?subject=${subject}&body=${body}`;
+      try {
+        // Save demo lead locally for review
+        saveLead({ id: 'lead_' + Date.now(), name, email, phone, message, created: new Date().toISOString() });
+        // Open mail client
+        window.location.href = mailto;
+        showToast('Message prepared — email client opened');
+      } catch (e) {
+        // Fallback: instruct user
+        alert('Unable to open email client. Please send details to ' + RECIPIENT_EMAIL);
+      }
+
+      // Clear form after a short delay (but keep page for user)
+      setTimeout(()=> {
+        document.getElementById('contactForm').reset();
+      }, 600);
+
+      return false;
+    }
+
+    // Save lead to localStorage (demo)
+    function saveLead(lead){
+      try {
+        const KEY = 'latham_wathinks_leads';
+        const raw = localStorage.getItem(KEY);
+        const arr = raw ? JSON.parse(raw) : [];
+        arr.unshift(lead);
+        localStorage.setItem(KEY, JSON.stringify(arr.slice(0, 200))); // keep last 200
+      } catch(e){}
+    }
+
+    // Copy email to clipboard
+    function copyEmail(){
+      const email = RECIPIENT_EMAIL;
+      if(navigator.clipboard){
+        navigator.clipboard.writeText(email).then(()=> {
+          showToast('Email address copied to clipboard');
+        }, ()=> {
+          fallbackCopy(email);
+        });
+      } else {
+        fallbackCopy(email);
+      }
+    }
+    function fallbackCopy(text){
+      const ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); showToast('Email address copied to clipboard'); } catch(e){ alert('Copy failed — please copy manually: ' + text); }
+      ta.remove();
+    }
+
+    // Toast helper
+    function showToast(msg){
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.style.display = 'block';
+      setTimeout(()=> { t.style.opacity = '1'; }, 10);
+      setTimeout(()=> { t.style.opacity = '0'; setTimeout(()=> t.style.display = 'none', 300); }, 2800);
+    }
+
+    // Accessibility: focus contact name when CTA clicked
+    document.querySelectorAll('.primary-cta').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        // If the contact form exists, focus the first field
+        const el = document.getElementById('contactName');
+        if(el){ setTimeout(()=> el.focus(), 100); }
+      });
+    });
+
+    // Small UX: pressing Enter in any input in the right column will submit the form
+    // (default browser behaviour handles this already).
+  </script>
+</body>
+</html>
